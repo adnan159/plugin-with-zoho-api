@@ -1,0 +1,8 @@
+{
+	"description": "A plugin for test Zoho API",
+	"autoload": {
+		"psr-4": {
+			"ZFT\\": "includes/"
+		}
+	}
+}
