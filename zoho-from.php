@@ -62,6 +62,7 @@ final class Zoho_From {
 	 */
 	private function run_admin_classes() {
 		new ZFT\Admin\Menu();
+		new ZFT\Admin\Ajax();
 	}
 
 	/**

@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import OutputField from './OutputField.js'
 
 export default function App() {
   return (
     <div>
-      <h1>kjsdghkl Output</h1>
+      <h2 className="from-heading-title">Output Table</h2>
+      <OutputField />
     </div>
   )
 }

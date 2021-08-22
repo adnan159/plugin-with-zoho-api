@@ -17,44 +17,54 @@ export default function From() {
   const classes = useStyles();
 
   const [bio, setBio] = useState({
-    firstName : '',
-    lastName  : '',
-    position : '',
-    email : '',
-    contactNumber: ''
+    Company : '',
+    Last_Name  : '',
+    First_Name : '',
+    Email : '',
+    State: ''
   });
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    let data = {
+      'action': 'zoho_from_action',
+      'bio': bio    
+    };
+
+    jQuery.post(input_ajax_object.ajax_url, data, (response) => {
+    });
+  }
 
   return (
     <Box style={ { backgroundColor: '#cfe8fc' } } height="100%" width="75vh" p={2}>
-      <form className={classes.root} >
+      <form method="post"  className={classes.root} onSubmit={handleSubmit}>
         <TextField id="standard-basic" 
-          label="First Name" 
-          value = {bio.firstName}
-          onChange = {(e) => setBio({...bio, firstName: e.target.value})}
+          label="Company" 
+          value = {bio.Company}
+          onChange = {(e) => setBio({...bio, Company: e.target.value})}
         />
         <TextField id="standard-basic" 
           label="Last Name" 
-          value = {bio.lastName}
-          onChange = {(e) => setBio({...bio, lastName: e.target.value})}
+          value = {bio.Last_Name}
+          onChange = {(e) => setBio({...bio, Last_Name: e.target.value})}
         />
         <TextField id="standard-basic" 
-          label="Position" 
-          value={bio.position}
-          onChange = {(e) => setBio({...bio, position: e.target.value})}
+          label="First Name" 
+          value={bio.First_Name}
+          onChange = {(e) => setBio({...bio, First_Name: e.target.value})}
         />
         <TextField id="standard-basic" 
           label="Email" 
-          value={bio.email}
-          onChange = {(e) => setBio({...bio, email: e.target.value})}
+          value={bio.Email}
+          onChange = {(e) => setBio({...bio, Email: e.target.value})}
         />
         <TextField id="standard-basic" 
-          label="Contact Number"
-          value={bio.contactNumber}
-          onChange = {(e) => setBio({...bio, contactNumber: e.target.value})}
+          label="State"
+          value={bio.State}
+          onChange = {(e) => setBio({...bio, State: e.target.value})}
         />
-        <Button variant="contained" color="primary">
-          Save
-        </Button>
+        <Button variant="contained" color="primary" type="submit"> Save </Button>
       </form>
     </Box>
   );

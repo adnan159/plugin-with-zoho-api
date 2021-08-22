@@ -14449,15 +14449,24 @@ function From() {
   var classes = useStyles();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    firstName: '',
-    lastName: '',
-    position: '',
-    email: '',
-    contactNumber: ''
+    Company: '',
+    Last_Name: '',
+    First_Name: '',
+    Email: '',
+    State: ''
   }),
       _useState2 = _slicedToArray(_useState, 2),
       bio = _useState2[0],
       setBio = _useState2[1];
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    var data = {
+      'action': 'zoho_from_action',
+      'bio': bio
+    };
+    jQuery.post(input_ajax_object.ajax_url, data, function (response) {});
+  }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default, {
     style: {
@@ -14467,56 +14476,59 @@ function From() {
     width: "75vh",
     p: 2,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+      method: "post",
       className: classes.root,
+      onSubmit: handleSubmit,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
         id: "standard-basic",
-        label: "First Name",
-        value: bio.firstName,
+        label: "Company",
+        value: bio.Company,
         onChange: function onChange(e) {
           return setBio(_objectSpread(_objectSpread({}, bio), {}, {
-            firstName: e.target.value
+            Company: e.target.value
           }));
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
         id: "standard-basic",
         label: "Last Name",
-        value: bio.lastName,
+        value: bio.Last_Name,
         onChange: function onChange(e) {
           return setBio(_objectSpread(_objectSpread({}, bio), {}, {
-            lastName: e.target.value
+            Last_Name: e.target.value
           }));
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
         id: "standard-basic",
-        label: "Position",
-        value: bio.position,
+        label: "First Name",
+        value: bio.First_Name,
         onChange: function onChange(e) {
           return setBio(_objectSpread(_objectSpread({}, bio), {}, {
-            position: e.target.value
+            First_Name: e.target.value
           }));
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
         id: "standard-basic",
         label: "Email",
-        value: bio.email,
+        value: bio.Email,
         onChange: function onChange(e) {
           return setBio(_objectSpread(_objectSpread({}, bio), {}, {
-            email: e.target.value
+            Email: e.target.value
           }));
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
         id: "standard-basic",
-        label: "Contact Number",
-        value: bio.contactNumber,
+        label: "State",
+        value: bio.State,
         onChange: function onChange(e) {
           return setBio(_objectSpread(_objectSpread({}, bio), {}, {
-            contactNumber: e.target.value
+            State: e.target.value
           }));
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
         variant: "contained",
         color: "primary",
-        children: "Save"
+        type: "submit",
+        children: " Save "
       })]
     })
   });
