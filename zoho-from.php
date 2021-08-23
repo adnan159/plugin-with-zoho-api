@@ -66,7 +66,7 @@ final class Zoho_From {
 	}
 
 	/**
-	 * Initialize admin classes
+	 * Initialize front classes
 	 */
 	private function run_front_classes() {
 		new ZFT\Front\Shortcode();

@@ -32,6 +32,7 @@ class Menu {
         echo '<div>
             <h1>Use  [input-form] for Input</h1>
             <h1>Use  [output-table] for Output</h1>
+            <h4> Note: Please use new Access Token in "includes/Admin/Ajax.php" file in zoho_input_from() and zoho_output_field() </h4>
         </div>';
     }
 
